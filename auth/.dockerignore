@@ -1,3 +1,3 @@
 node_modules
-test
 src/routes/__test__
+src/test
