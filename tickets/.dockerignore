@@ -3,3 +3,4 @@ src/routes/__test__
 src/test
 src/__mocks__
 src/events/listeners/__test__
+src/models/__test__
