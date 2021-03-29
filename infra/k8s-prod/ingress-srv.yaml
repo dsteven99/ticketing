@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - d99-ticketing-app.xyz
+    - www.d99-ticketing-app.xyz
     secretName: ticketing-tls
   rules:
-    - host: d99-ticketing-app.xyz
+    - host: www.d99-ticketing-app.xyz
       http:
         paths:
           - path: /api/payments/?(.*)
@@ -56,7 +56,7 @@ kind: Service
 metadata:
   annotations:
     service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: 'true'
-    service.beta.kubernetes.io/do-loadbalancer-hostname: 'd99-ticketing-app.xyz'
+    service.beta.kubernetes.io/do-loadbalancer-hostname: 'www.d99-ticketing-app.xyz'
   labels:
     helm.sh/chart: ingress-nginx-2.0.3
     app.kubernetes.io/name: ingress-nginx
