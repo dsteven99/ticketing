@@ -12,9 +12,28 @@ spec:
       labels:
         app: auth-mongo
     spec:
+      volumes:
+        - name: auth-mongo-storage
+          persistentVolumeClaim:
+            claimName: auth-db-bs-claim
       containers:
         - name: auth-mongo
           image: mongo
+          volumeMounts:
+            - mountPath: '/data/db'
+              name: auth-mongo-storage
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: auth-db-bs-claim
+spec:
+  storageClassName: do-block-storage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
 ---
 apiVersion: v1
 kind: Service
